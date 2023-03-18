@@ -61,3 +61,10 @@ from collections import Counter
 def scramble(s1, s2):
     # Python 3.10 rich comparison operators for Counter ftw!
     return Counter(s2) <= Counter(s1)
+
+# Rezolvare 8
+scramble=lambda a,b,c=__import__('collections').Counter:not c(b)-c(a)
+
+# Rezolvare 9
+from collections import Counter
+def scramble(s1,s2): return len(Counter(s2) - Counter(s1)) == 0
