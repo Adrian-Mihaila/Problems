@@ -70,5 +70,26 @@ ls = ['bcda', 'abce', 'cbda', 'cbea', 'adcb']
 result = list(filter(lambda x: (Counter("abcd") == Counter(x)), ls))
 print(result)
 
+# P interviu
+def pairs(items, sum_):
+    dict_ = {}
+    result = []
+    for i in items:
+        pair = sum_ - i
+        if dict_.get(pair) and dict_[pair] > 0:
+            result.append([pair, i])
+            dict_[pair] -= 1
+        else:
+            dict_[i] = dict_.get(i, 0) + 1
+
+    return result
+
+
+res1 = pairs([1, 2, 3, 4, 5, 6, 7, 8, 9, 0, -1], 4)
+print(list(res1))  # [[1,3],[4,0],[5,-1]]
+res2 = pairs([1, 3, 1], 4)
+print(list(res2)) # [[1,3]]
+res3 = pairs([1, 3, 3, 3, 3, 3, 3, 1, 1], 4)
+print(list(res3)) # [[1,3],[3,1],[3,1]]
  
 
