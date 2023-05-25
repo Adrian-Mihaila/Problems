@@ -1,4 +1,18 @@
-#Keep Hydrated!
+# Count by X
+# Create a function with two arguments that will return an array of the first n multiples of x.
+def count_by(x, n)
+  multiples = []
+  (1..n).each do |i|
+    multiples << x * i
+  end
+  multiples
+end
+
+def count_by(x, n)
+  (1..n).map{|i| i*x}
+end
+
+# Keep Hydrated!
 def litres(time)
   (time * 0.5).floor
 end
