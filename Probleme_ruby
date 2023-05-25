@@ -1,0 +1,10 @@
+#Keep Hydrated!
+def litres(time)
+  (time * 0.5).floor
+end
+
+def litres(time)
+  (time.floor * 0.5).round(half: :down)
+end
+
+def litres(t)(t*0.5).floor end
