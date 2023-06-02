@@ -1,3 +1,11 @@
+# Smash! Concatenate array intro string
+
+def smash(words)
+  words * ' '
+end
+# ['hello', 'world', 'this', 'is', 'great']  =>  'hello world this is great'
+
+
 # Count by X
 # Create a function with two arguments that will return an array of the first n multiples of x.
 
