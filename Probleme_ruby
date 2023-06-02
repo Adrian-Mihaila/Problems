@@ -1,3 +1,13 @@
+# ([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) => returns "(123) 456-7890"
+def create_phone_number(numbers)
+  "(#{numbers.slice(0,3)})^#{numbers.slice(3,3)}-#{numbers.slice(-4,4)}".tr("[]"," ").delete(",").delete(" ").tr("^", " ")
+end
+
+def create_phone_number(numbers)
+  "(%d%d%d) %d%d%d-%d%d%d%d" % numbers
+end
+
+
 # return string with input variable
 def greet(name)
   "Hello, %s how are you doing today?" % name
