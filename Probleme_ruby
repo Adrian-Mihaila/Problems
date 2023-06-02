@@ -1,5 +1,82 @@
-# Smash! Concatenate array intro string
+# return string with input variable
+def greet(name)
+  "Hello, %s how are you doing today?" % name
+end
 
+
+# return min and max
+def min(list)
+list.sort[0]
+end
+
+def max(list)
+ list.sort[-1]
+end
+
+def min(list)
+min = list[0]
+  list.each do |el|
+    if el < min
+      min = el
+     end
+  end
+  return min
+end
+
+def max(list)
+  max = list[0]
+  list.each do |el|
+    if el > max
+      max = el
+     end
+  end
+  return max
+end
+
+
+# check if arr contains element
+# check([78, 117, 110, 99, 104, 117, 107, 115], 8)
+def check(arr,element)
+  arr.include? element
+end
+
+def check(arr,element)
+#   return "x".to_i
+  return arr.find(proc{false}){|e| e==element } == false ? false : true
+end
+
+
+# Return true if first and last char are equal for both elements
+def feast(beast, dish)
+  [0, -1].all? { |i| beast[i] == dish[i] }
+end
+
+
+# Count sheeps 1 sheep...2 sheep...3 sheep...
+def count_sheep(num)
+  i = ""
+  (1..num).map {|x| i += "#{x} sheep..."}
+  i
+end
+
+
+# sum of integers in an array
+def sum(numbers)
+  result = 0
+  numbers.map {|x| result += x}
+  result
+end
+
+def sum(numbers)
+  numbers.reduce(:+) || 0
+end
+
+
+# Simple math operation. Return boolean
+def zero_fuel(_,__,___) ___*__>=_ end 
+
+
+# Smash! Concatenate array intro string
 def smash(words)
   words * ' '
 end
@@ -8,7 +85,6 @@ end
 
 # Count by X
 # Create a function with two arguments that will return an array of the first n multiples of x.
-
 def count_by(x, n)
   multiples = []
   (1..n).each do |i|
@@ -23,7 +99,6 @@ end
 
 
 # Keep Hydrated!
-
 def litres(time)
   (time * 0.5).floor
 end
@@ -37,7 +112,6 @@ def litres(t)(t*0.5).floor end
 
 # Fake Binary
 # Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'. Return the resulting string.
-
 def fake_bin(s)
   i = ""
   s.chars.map { |x| x.to_i < 5 ? i+= "0" : i += "1" }
