@@ -2,8 +2,9 @@
 def solution(str)
   str = str.chars
   str << '_' if str.length.odd?
-  str.each_slice(2).map(&:join)  ## &:method_name shorthand syntax, also known as Symbol#to_proc. It works by converting the symbol :method_name into a Proc object and then passing that Proc object as the block to the method.
-end
+  str.each_slice(2).map(&:join)  ## &:method_name shorthand syntax, also known as Symbol#to_proc. It works by converting the symbol 
+end                              ## :method_name into a Proc object and then passing that Proc object as the block to the method.
+
 
 def solution str
   (str + '_').scan /../
