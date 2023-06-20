@@ -5,6 +5,10 @@ def solution(str)
   str.each_slice(2).map(&:join)  ## &:method_name shorthand syntax, also known as Symbol#to_proc. It works by converting the symbol :method_name into a Proc object and then passing that Proc object as the block to the method.
 end
 
+def solution str
+  (str + '_').scan /../
+end
+
 
 # ([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) => returns "(123) 456-7890"
 def create_phone_number(numbers)
