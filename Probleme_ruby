@@ -1,3 +1,27 @@
+# Remove the first smallest element from array and keep the order. Do not mutate the original array/list. 
+def remove_smallest(numbers)
+  m = numbers.min
+  ind = 0
+  arr = numbers.dup  # Create a shallow copy of the original numbers array
+  arr.each do |x|
+    ind += 1
+    if x == m
+      arr.delete_at(ind-1)
+      break
+    end
+  end
+  arr
+end
+
+result = remove_smallest([2, 2, 1, 2, 1])
+puts result.inspect
+
+def remove_smallest(numbers)
+  min_index = numbers.index(numbers.min)
+  numbers.reject.with_index { |_, index| index == min_index }
+end
+
+
 # Splits the string into pairs of two characters. 'abcdefg' =>  ["ab", "cd", "ef", "g_"]. 
 def solution(str)
   str = str.chars
