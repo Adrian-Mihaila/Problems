@@ -1,3 +1,14 @@
+# Remove vowels from string
+def disemvowel(str)
+  vowels = ["a","e","i","o","u","A", "E", "I", "O", "U"]
+  (str.chars - vowels).join
+end
+
+def disemvowel(str)
+  str.delete('aeiouAEIOU')
+end
+
+
 # Remove the first smallest element from array and keep the order. Do not mutate the original array/list. 
 def remove_smallest(numbers)
   m = numbers.min
