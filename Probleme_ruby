@@ -1,3 +1,26 @@
+# sort the odd numbers in ascending order while leaving the even numbers at their original positions. [5, 8, 6, 3, 4]  =>  [3, 8, 6, 5, 4]
+def sort_array(arr)
+  odds = arr.select { |i| i.odd? }.sort
+  ind = 0
+  arr.map! do |x|
+    if x.odd?
+      x = odds[ind]
+      ind += 1
+    end
+    x
+  end
+end
+
+def sort_array(arr)
+  odds = arr.select(&:odd?).sort
+  arr.map { |num| num.odd? ? odds.shift : num }
+end
+
+arr = [5, 8, 6, 3, 4]
+result = sort_array(arr)
+puts result.inspect
+
+
 # Remove vowels from string
 def disemvowel(str)
   vowels = ["a","e","i","o","u","A", "E", "I", "O", "U"]
