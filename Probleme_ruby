@@ -1,4 +1,26 @@
+# Scramblies. Return true if s2 is in s1 or false if not.
+# # Rezolvare 1 O(n)
+def scramble(s1, s2)
+  freq = Hash.new(0)
+
+  s1.each_char do |c|
+    freq[c] += 1
+  end
+
+  s2.each_char do |c|
+    if !freq.key?(c) || freq[c] <= 0
+      return false
+    end
+    freq[c] -= 1
+  end
+
+  return true
+end
+
+
+
 # sort the odd numbers in ascending order while leaving the even numbers at their original positions. [5, 8, 6, 3, 4]  =>  [3, 8, 6, 5, 4]
+# # Rezolvare 1
 def sort_array(arr)
   odds = arr.select { |i| i.odd? }.sort
   ind = 0
@@ -11,6 +33,7 @@ def sort_array(arr)
   end
 end
 
+# # Rezolvare 2
 def sort_array(arr)
   odds = arr.select(&:odd?).sort
   arr.map { |num| num.odd? ? odds.shift : num }
@@ -21,18 +44,23 @@ result = sort_array(arr)
 puts result.inspect
 
 
+
 # Remove vowels from string
+# # Rezolvare 1
 def disemvowel(str)
   vowels = ["a","e","i","o","u","A", "E", "I", "O", "U"]
   (str.chars - vowels).join
 end
 
+# # Rezolvare 2
 def disemvowel(str)
   str.delete('aeiouAEIOU')
 end
 
 
+
 # Remove the first smallest element from array and keep the order. Do not mutate the original array/list. 
+# # Rezolvare 1
 def remove_smallest(numbers)
   m = numbers.min
   ind = 0
@@ -50,33 +78,40 @@ end
 result = remove_smallest([2, 2, 1, 2, 1])
 puts result.inspect
 
+# # Rezolvare 2
 def remove_smallest(numbers)
   min_index = numbers.index(numbers.min)
   numbers.reject.with_index { |_, index| index == min_index }
 end
 
 
+
 # Splits the string into pairs of two characters. 'abcdefg' =>  ["ab", "cd", "ef", "g_"]. 
+# # Rezolvare 1
 def solution(str)
   str = str.chars
   str << '_' if str.length.odd?
   str.each_slice(2).map(&:join)  ## &:method_name shorthand syntax, also known as Symbol#to_proc. It works by converting the symbol 
 end                              ## :method_name into a Proc object and then passing that Proc object as the block to the method.
 
-
+# # Rezolvare 2
 def solution str
   (str + '_').scan /../
 end
 
 
+
 # ([1, 2, 3, 4, 5, 6, 7, 8, 9, 0]) => returns "(123) 456-7890"
+# # Rezolvare 1
 def create_phone_number(numbers)
   "(#{numbers.slice(0,3)})^#{numbers.slice(3,3)}-#{numbers.slice(-4,4)}".tr("[]"," ").delete(",").delete(" ").tr("^", " ")
 end
 
+# # Rezolvare 2
 def create_phone_number(numbers)
   "(%d%d%d) %d%d%d-%d%d%d%d" % numbers
 end
+
 
 
 # return string with input variable
@@ -85,7 +120,9 @@ def greet(name)
 end
 
 
+
 # return min and max
+# # Rezolvare 1
 def min(list)
 list.sort[0]
 end
@@ -94,6 +131,7 @@ def max(list)
  list.sort[-1]
 end
 
+# # Rezolvare 2
 def min(list)
 min = list[0]
   list.each do |el|
@@ -115,22 +153,27 @@ def max(list)
 end
 
 
+
 # check if arr contains element
 # check([78, 117, 110, 99, 104, 117, 107, 115], 8)
+# # Rezolvare 1
 def check(arr,element)
   arr.include? element
 end
 
+# # Rezolvare 2
 def check(arr,element)
 #   return "x".to_i
   return arr.find(proc{false}){|e| e==element } == false ? false : true
 end
 
 
+
 # Return true if first and last char are equal for both elements
 def feast(beast, dish)
   [0, -1].all? { |i| beast[i] == dish[i] }
 end
+
 
 
 # Count sheeps 1 sheep...2 sheep...3 sheep...
@@ -142,19 +185,23 @@ end
 
 
 # sum of integers in an array
+# # Rezolvare 1
 def sum(numbers)
   result = 0
   numbers.map {|x| result += x}
   result
 end
 
+# # Rezolvare 2
 def sum(numbers)
   numbers.reduce(:+) || 0
 end
 
 
+
 # Simple math operation. Return boolean
 def zero_fuel(_,__,___) ___*__>=_ end 
+
 
 
 # Smash! Concatenate array intro string
@@ -164,8 +211,10 @@ end
 # ['hello', 'world', 'this', 'is', 'great']  =>  'hello world this is great'
 
 
+
 # Count by X
 # Create a function with two arguments that will return an array of the first n multiples of x.
+# # Rezolvare 1
 def count_by(x, n)
   multiples = []
   (1..n).each do |i|
@@ -174,35 +223,44 @@ def count_by(x, n)
   multiples
 end
 
+# # Rezolvare 2
 def count_by(x, n)
   (1..n).map{|i| i*x}
 end
 
 
+
 # Keep Hydrated!
+# # Rezolvare 1
 def litres(time)
   (time * 0.5).floor
 end
 
+# # Rezolvare 2
 def litres(time)
   (time.floor * 0.5).round(half: :down)
 end
 
+# # Rezolvare 3
 def litres(t)(t*0.5).floor end
+
 
 
 # Fake Binary
 # Given a string of digits, you should replace any digit below 5 with '0' and any digit 5 and above with '1'. Return the resulting string.
+# # Rezolvare 1
 def fake_bin(s)
   i = ""
   s.chars.map { |x| x.to_i < 5 ? i+= "0" : i += "1" }
   i
 end
 
+# # Rezolvare 2
 def fake_bin(str)
   str.split('').map{ |x| x.to_i < 5 ? 0 : 1 }.join
 end
 
+# # Rezolvare 3
 def fake_bin(s)
   s.tr("123456789", "000011111")
 end
