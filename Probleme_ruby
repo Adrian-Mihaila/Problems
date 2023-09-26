@@ -1,3 +1,17 @@
+# find two different items in the array that, when added together, give the target value. two_sum([1, 2, 3], 4) == {0, 2}
+def two_sum(numbers, target)
+  my_hash = {}
+  numbers.each_with_index do |num, index|
+    pair = target - num
+    if my_hash.key?(pair)
+      return [my_hash[pair], index]
+    end
+    my_hash[num] = index
+  end
+end
+
+
+
 # Scramblies. Return true if s2 is in s1 or false if not.
 # # Rezolvare 1 O(n)
 def scramble(s1, s2)
