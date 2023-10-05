@@ -1,5 +1,23 @@
+# Write a 'welcome' function that takes a parameter 'language', with a type String, and returns a greeting - if you have it 
+# in your database. It should default to English if the language is not in the database, or in the event of an invalid input.
+def greet(language)
+  data = [["english", "Welcome"],
+        ["czech", "Vitejte"],
+        ["danish", "Velkomst"],
+        ["dutch", "Welkom"],
+        ["estonian", "Tere tulemast"]]
+  data_hash = {}
+  data.each do |x|
+    lang, greeting = x
+    data_hash[lang] = greeting
+  end
+  data_hash[language.downcase] || "Welcome"
+end
+
+
+
 # find two different items in the array that, when added together, give the target value. two_sum([1, 2, 3], 4) == {0, 2}
-def two_sum(numbers, target)
+# def two_sum(numbers, target)
   my_hash = {}
   numbers.each_with_index do |num, index|
     pair = target - num
